@@ -4,7 +4,8 @@ import express from 'express';
 
 import connectToMongoDB from './db/connectToMongoDB.js';
 import authRoutes from './routes/auth.routes.js';
-import messagesRoutes from './routes/message.routes.js';
+import messageRoutes from './routes/message.routes.js';
+import userRoutes from './routes/user.routes.js';
 
 dotenv.config();
 const app = express();
@@ -16,7 +17,8 @@ app.use(cookieParser());
 
 // Định nghĩa route
 app.use("/api/auth", authRoutes);
-app.use("/api/messages", messagesRoutes);
+app.use("/api/messages", messageRoutes);
+app.use("/api/users",userRoutes);
 
 // Server lắng nghe
 app.listen(PORT, () => {
